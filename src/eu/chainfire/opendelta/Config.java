@@ -27,6 +27,7 @@ import android.content.res.Resources;
 import android.os.Environment;
 import android.os.SystemProperties;
 import android.preference.PreferenceManager;
+import android.text.TextUtils;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -34,6 +35,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
+
+import org.omnirom.omnilib.utils.OmniServiceLocator;
 
 public class Config {
     private static Config instance = null;
@@ -112,19 +115,39 @@ public class Config {
                 File.separator);
         path_flash_after_update = String.format(Locale.ENGLISH, "%s%s%s",
                 path_base, "FlashAfterUpdate", File.separator);
-        url_base_delta = String.format(Locale.ENGLISH,
-                res.getString(R.string.url_base_delta), property_device);
-        url_base_update = String.format(Locale.ENGLISH,
-                res.getString(R.string.url_base_update), property_device);
-        url_base_full = String.format(Locale.ENGLISH,
-                res.getString(R.string.url_base_full), property_device);
+
+        String urlBaseDelta =  OmniServiceLocator.buildBuildsDeltasRootUrl(context);
+        if (TextUtils.isEmpty(urlBaseDelta)) {
+            urlBaseDelta = res.getString(R.string.url_base_delta);
+        }
+        url_base_delta = urlBaseDelta + property_device + "/";
+        url_base_update = url_base_delta;
+        /*url_base_delta = String.format(Locale.ENGLISH,
+                res.getString(R.string.url_base_delta), property_device);*/
+        /*url_base_update = String.format(Locale.ENGLISH,
+                res.getString(R.string.url_base_update), property_device);*/
+
+        String urlBaseDFull =  OmniServiceLocator.buildBuildsRootUrl(context, false);
+        if (TextUtils.isEmpty(urlBaseDFull)) {
+            urlBaseDFull = res.getString(R.string.url_base_full);
+        }
+        url_base_full = urlBaseDFull + property_device + "/";
+        /*url_base_full = String.format(Locale.ENGLISH,
+                res.getString(R.string.url_base_full), property_device);*/
+                
         apply_signature = res.getBoolean(R.bool.apply_signature);
         inject_signature_enable = res
                 .getBoolean(R.bool.inject_signature_enable);
         inject_signature_keys = res.getString(R.string.inject_signature_keys);
         secure_mode_enable = res.getBoolean(R.bool.secure_mode_enable);
         secure_mode_default = res.getBoolean(R.bool.secure_mode_default);
-        url_base_json = res.getString(R.string.url_base_json);
+        
+        String urlBaseJson =  OmniServiceLocator.buildBuildsQueryUrl(context, false);
+        if (TextUtils.isEmpty(urlBaseJson)) {
+            urlBaseJson = res.getString(R.string.url_base_json);
+        }
+        url_base_json = urlBaseJson;
+        /*url_base_json = res.getString(R.string.url_base_json);*/
         weekly_version_tag = res.getString(R.string.weekly_version_tag);
         gapps_version_tag = res.getString(R.string.gapps_version_tag);
         microg_version_tag = res.getString(R.string.microg_version_tag);
@@ -149,14 +172,16 @@ public class Config {
         this.keep_screen_on = keep_screen_on;
 
         if (isGappsDevice()) {
-            url_base_delta = String.format(Locale.ENGLISH,
-                    res.getString(R.string.url_base_delta), "tmp/" + property_device);
-            url_base_update = String.format(Locale.ENGLISH,
-                    res.getString(R.string.url_base_update), "tmp/" + property_device);
-            url_base_full = String.format(Locale.ENGLISH,
-                    res.getString(R.string.url_base_full), "tmp/" + property_device);
-            url_base_json = String.format(Locale.ENGLISH,
-                    res.getString(R.string.url_base_full_file), "tmp/json.php");
+            urlBaseDFull =  OmniServiceLocator.buildBuildsRootUrl(context, true);
+            if (TextUtils.isEmpty(urlBaseDFull)) {
+                urlBaseDFull = res.getString(R.string.url_base_full);
+            }
+            urlBaseJson =  OmniServiceLocator.buildBuildsQueryUrl(context, true);
+            if (TextUtils.isEmpty(url_base_json)) {
+                urlBaseJson = res.getString(R.string.url_base_json);
+            }
+            url_base_full = urlBaseDFull + property_device;
+            url_base_json = urlBaseJson;
         }
 
         Logger.d("property_version: %s", property_version);

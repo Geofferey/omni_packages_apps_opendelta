@@ -23,6 +23,8 @@ else
   LOCAL_SDK_VERSION := system_current
 endif
 
+include packages/apps/OmniLib/common.mk
+
 include $(BUILD_PACKAGE)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
