@@ -77,6 +77,8 @@ public class Config {
     private final String weekly_version_tag;
     private final String gapps_version_tag;
     private final String microg_version_tag;
+    private final boolean secondaryDevice;
+    private final boolean downloadOnlyDevice;
 
     /*
      * Using reflection voodoo instead calling the hidden class directly, to
@@ -101,6 +103,9 @@ public class Config {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         Resources res = context.getResources();
+
+        secondaryDevice = res.getBoolean(R.bool.secondary_device);
+        downloadOnlyDevice = res.getBoolean(R.bool.download_only_device);
 
         property_version = getProperty(context,
                 res.getString(R.string.property_version), "");
@@ -127,11 +132,11 @@ public class Config {
         /*url_base_update = String.format(Locale.ENGLISH,
                 res.getString(R.string.url_base_update), property_device);*/
 
-        String urlBaseDFull =  OmniServiceLocator.buildBuildsRootUrl(context, false);
-        if (TextUtils.isEmpty(urlBaseDFull)) {
-            urlBaseDFull = res.getString(R.string.url_base_full);
+        String urlBaseFull =  OmniServiceLocator.buildBuildsRootUrl(context, false);
+        if (TextUtils.isEmpty(urlBaseFull)) {
+            urlBaseFull = res.getString(R.string.url_base_full);
         }
-        url_base_full = urlBaseDFull + property_device + "/";
+        url_base_full = urlBaseFull + property_device + "/";
         /*url_base_full = String.format(Locale.ENGLISH,
                 res.getString(R.string.url_base_full), property_device);*/
                 
@@ -171,16 +176,16 @@ public class Config {
         }
         this.keep_screen_on = keep_screen_on;
 
-        if (isGappsDevice()) {
-            urlBaseDFull =  OmniServiceLocator.buildBuildsRootUrl(context, true);
-            if (TextUtils.isEmpty(urlBaseDFull)) {
-                urlBaseDFull = res.getString(R.string.url_base_full);
+        if (isSecondaryDevice()) {
+            urlBaseFull =  OmniServiceLocator.buildBuildsRootUrl(context, true);
+            if (TextUtils.isEmpty(urlBaseFull)) {
+                urlBaseFull = res.getString(R.string.url_base_full);
             }
             urlBaseJson =  OmniServiceLocator.buildBuildsQueryUrl(context, true);
             if (TextUtils.isEmpty(url_base_json)) {
                 urlBaseJson = res.getString(R.string.url_base_json);
             }
-            url_base_full = urlBaseDFull + property_device;
+            url_base_full = urlBaseFull + property_device;
             url_base_json = urlBaseJson;
         }
 
@@ -369,5 +374,13 @@ public class Config {
             return microg_version_tag;
         }
         return null;
+    }
+
+    private boolean isSecondaryDevice() {
+        return isGappsDevice() || secondaryDevice;
+    }
+
+    public boolean isDownloadOnlyDevice() {
+        return downloadOnlyDevice;
     }
 }

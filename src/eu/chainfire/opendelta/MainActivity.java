@@ -32,6 +32,7 @@ import android.app.Activity;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.ContentUris;
 import android.content.DialogInterface;
@@ -61,9 +62,11 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.android.internal.util.omni.PackageUtils;
+
 public class MainActivity extends Activity {
     private TextView title = null;
-    private TextView sub = null;
+    private TextView mProgressText = null;
     private ProgressBar progress = null;
     private Button checkNow = null;
     private Button flashNow = null;
@@ -80,7 +83,7 @@ public class MainActivity extends Activity {
     private TextView downloadSize = null;
     private Config config;
     private boolean mPermOk;
-    private TextView mSub2;
+    private TextView mProgressText2;
     private TextView mProgressPercent;
     private View mProgressEndSpace;
     private int mProgressCurrent = 0;
@@ -90,10 +93,14 @@ public class MainActivity extends Activity {
     private SharedPreferences mPrefs;
     private TextView mUpdateVersionTitle;
     private TextView mExtraText;
+    private Button mShowChanges;
 
     private static final int PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 0;
     private static final int ACTIVITY_SELECT_FLASH_FILE = 1;
     private static final String COLON = ":";
+    private static final String OMNI_CHANGE_PACKAGE = "org.omnirom.omnichange";
+    private static final String OMNI_CHANGE_ACTIVITY = "org.omnirom.omnichange.OmniMain";
+    private static final String SHOW_INFO_TEXT = "show_info_text";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,8 +121,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         title = (TextView) findViewById(R.id.text_title);
-        sub = (TextView) findViewById(R.id.progress_text);
-        mSub2 = (TextView) findViewById(R.id.progress_text2);
+        mProgressText = (TextView) findViewById(R.id.progress_text);
+        mProgressText2 = (TextView) findViewById(R.id.progress_text2);
         progress = (ProgressBar) findViewById(R.id.progress_bar);
         checkNow = (Button) findViewById(R.id.button_check_now);
         flashNow = (Button) findViewById(R.id.button_flash_now);
@@ -135,6 +142,9 @@ public class MainActivity extends Activity {
         mFileFlashButton = findViewById(R.id.button_select_file);
         mUpdateVersionTitle = findViewById(R.id.text_update_version_header);
         mExtraText = findViewById(R.id.extra_text);
+        mShowChanges = findViewById(R.id.button_show_changes);
+
+        setTextInfoVisibility();
 
         config = Config.getInstance(this);
         mPermOk = false;
@@ -208,8 +218,8 @@ public class MainActivity extends Activity {
         @Override
         public void onReceive(Context context, Intent intent) {
             String title = "";
-            String sub = "";
-            String sub2 = "";
+            String progressText = "";
+            String progressText2 = "";
             String progressPercent = "";
             String updateVersion = "";
             String extraText = "";
@@ -226,6 +236,7 @@ public class MainActivity extends Activity {
             boolean enableProgress = false;
             boolean disableCheckNow = false;
             boolean disableDataSpeed = false;
+            boolean enableShowChanges = false;
             boolean disableFileFlash = !mPrefs.getBoolean(SettingsActivity.PREF_FILE_FLASH, false);
             long lastCheckedSaved = mPrefs.getLong(UpdateService.PREF_LAST_CHECK_TIME_NAME,
                     UpdateService.PREF_LAST_CHECK_TIME_DEFAULT);
@@ -387,12 +398,14 @@ public class MainActivity extends Activity {
                     enableBuild = true;
                     updateVersion = latestDeltaBase;
                     title = getString(R.string.state_action_build_delta);
+                    enableShowChanges = true;
                 } else if (fullUpdatePossible) {
                     String latestFullBase = latestFull.substring(0,
                             latestFull.lastIndexOf('.'));
                     enableBuild = true;
                     updateVersion = latestFullBase;
                     title = getString(R.string.state_action_build_full);
+                    enableShowChanges = true;
                 }
                 long downloadSize = mPrefs.getLong(
                         UpdateService.PREF_DOWNLOAD_SIZE, -1);
@@ -454,7 +467,7 @@ public class MainActivity extends Activity {
                 String filename = intent
                         .getStringExtra(UpdateService.EXTRA_FILENAME);
                 if (filename != null) {
-                    sub = filename;
+                    progressText = filename;
                     long ms = intent.getLongExtra(UpdateService.EXTRA_MS, 0);
                     progressPercent = String.format(Locale.ENGLISH, "%.0f %%",
                                 intent.getFloatExtra(UpdateService.EXTRA_PROGRESS, 0));
@@ -466,16 +479,16 @@ public class MainActivity extends Activity {
                             kibps *= 1024f;
                         int sec = (int) (((((float) total / (float) current) * (float) ms) - ms) / 1000f);
                         if(disableDataSpeed) {
-                            sub2 = String.format(Locale.ENGLISH,
+                            progressText2 = String.format(Locale.ENGLISH,
                                     "%02d:%02d",
                                     sec / 60, sec % 60);
                         } else {
                             if (kibps < 10000) {
-                                sub2 = String.format(Locale.ENGLISH,
+                                progressText2 = String.format(Locale.ENGLISH,
                                         "%.0f KiB/s, %02d:%02d",
                                         kibps, sec / 60, sec % 60);
                             } else {
-                                sub2 = String.format(Locale.ENGLISH,
+                                progressText2 = String.format(Locale.ENGLISH,
                                         "%.0f MiB/s, %02d:%02d",
                                         kibps / 1024f, sec / 60, sec % 60);
                             }
@@ -484,8 +497,8 @@ public class MainActivity extends Activity {
                 }
             }
             MainActivity.this.title.setText(title);
-            MainActivity.this.sub.setText(sub);
-            MainActivity.this.mSub2.setText(sub2);
+            MainActivity.this.mProgressText.setText(progressText);
+            MainActivity.this.mProgressText2.setText(progressText2);
             MainActivity.this.mProgressPercent.setText(progressPercent);
             MainActivity.this.updateVersion.setText(updateVersion);
             MainActivity.this.updateVersionHeader
@@ -505,6 +518,9 @@ public class MainActivity extends Activity {
 
             handleProgressBar();
 
+            if (config.isDownloadOnlyDevice()) {
+                enableFlash = false;
+            }
             checkNow.setEnabled((mPermOk && enableCheck) ? true : false);
             buildNow.setEnabled((mPermOk && enableBuild) ? true : false);
             flashNow.setEnabled((mPermOk && enableFlash) ? true : false);
@@ -519,6 +535,9 @@ public class MainActivity extends Activity {
             rebootNow.setVisibility(enableReboot ? View.VISIBLE : View.GONE);
             mFileFlashButton.setVisibility((disableCheckNow || disableFileFlash) ? View.GONE : View.VISIBLE);
             mProgressEndSpace.setVisibility(enableStop ? View.VISIBLE : View.GONE);
+            if (isOmniChangeValid()) {
+                mShowChanges.setVisibility(enableShowChanges ? View.VISIBLE : View.GONE);
+            }
         }
     };
 
@@ -804,5 +823,38 @@ public class MainActivity extends Activity {
             return latestFullBase;
         }
         return "";
+    }
+
+    private boolean isOmniChangeValid() {
+        return PackageUtils.isAvailableApp(OMNI_CHANGE_PACKAGE,this);
+    }
+
+    private void startOmniChange() {
+        if (isOmniChangeValid()) {
+            Intent changeActivity = new Intent();
+            ComponentName changes = new ComponentName(OMNI_CHANGE_PACKAGE,
+                    OMNI_CHANGE_ACTIVITY);
+            changeActivity.setComponent(changes);
+            startActivity(changeActivity);
+        }
+    }
+
+    public void onButtonTextInfoClick(View v) {
+        mPrefs.edit().putBoolean(SHOW_INFO_TEXT, false).commit();
+        View infoTextSection = findViewById(R.id.text_info);
+        if (infoTextSection != null) {
+            infoTextSection.setVisibility(View.GONE);
+        }
+    }
+
+    private void setTextInfoVisibility() {
+        View v = findViewById(R.id.text_info);
+        if (v != null) {
+            v.setVisibility(mPrefs.getBoolean(SHOW_INFO_TEXT, true) ? View.VISIBLE : View.GONE);
+        }
+    }
+
+    public void onButtonShowChangesClick(View v) {
+        startOmniChange();
     }
 }

@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="15dp"
-    android:layout_marginEnd="15dp"
+    android:layout_marginStart="20dp"
+    android:layout_marginEnd="20dp"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -13,10 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:ellipsize="end"
-        android:maxLines="2"
+        android:layout_marginTop="10dp"
         android:gravity="center_horizontal"
+        android:ellipsize="end"
+        android:singleLine="true"
         android:textAppearance="@style/TitleText" />
 
     <Button
@@ -41,10 +41,6 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:textAppearance="@style/ValueText" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
 
     <TextView
         android:id="@+id/progress_text"
@@ -72,8 +68,8 @@
 
         <ImageButton
             android:id="@+id/button_stop"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_gravity="center_vertical"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/button_stop"
@@ -110,79 +106,91 @@
 
         <Space
             android:id="@+id/progress_end_margin"
-            android:layout_width="32dp"
+            android:layout_width="24dp"
             android:layout_height="wrap_content"
             android:visibility="gone" />
 
     </LinearLayout>
 
-    <Space
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
-
-    <TextView
-        android:id="@+id/text_last_checked_header"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_last_checked_header_title"
-        android:textAppearance="@style/HeaderText" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/text_last_checked"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/ValueText" />
+        <TextView
+            android:id="@+id/text_last_checked_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_last_checked_header_title"
+            android:textAppearance="@style/HeaderText" />
 
-    <Space
+        <TextView
+            android:id="@+id/text_last_checked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textAppearance="@style/ValueText" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
-
-    <TextView
-        android:id="@+id/text_current_version_header"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_current_version_header_title"
-        android:textAppearance="@style/HeaderText" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/text_current_version"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/ValueText" />
+        <TextView
+            android:id="@+id/text_current_version_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_current_version_header_title"
+            android:textAppearance="@style/HeaderText" />
 
-    <Space
+        <TextView
+            android:id="@+id/text_current_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textAppearance="@style/ValueText" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
-
-    <TextView
-        android:id="@+id/text_update_version_header"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_update_version_title"
-        android:textAppearance="@style/HeaderText" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/text_update_version"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/ValueText" />
+        <TextView
+            android:id="@+id/text_update_version_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_update_version_title"
+            android:textAppearance="@style/HeaderText" />
 
-    <Space
+        <TextView
+            android:id="@+id/text_update_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textAppearance="@style/ValueText" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
-
-    <TextView
-        android:id="@+id/text_download_size_header"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_download_size_header_title"
-        android:textAppearance="@style/HeaderText" />
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/text_download_size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/ValueText" />
+        <TextView
+            android:id="@+id/text_download_size_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_download_size_header_title"
+            android:textAppearance="@style/HeaderText" />
+
+        <TextView
+            android:id="@+id/text_download_size"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textAppearance="@style/ValueText" />
+    </LinearLayout>
 
     <Space
         android:layout_width="match_parent"
@@ -193,8 +201,8 @@
         android:id="@+id/text_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:background="@color/info_text_bg"
+        android:padding="10dp"
         android:visibility="gone"
         android:orientation="vertical" >
 
@@ -238,10 +246,6 @@
                 android:text="@android:string/ok" />
         </LinearLayout>
     </LinearLayout>
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"

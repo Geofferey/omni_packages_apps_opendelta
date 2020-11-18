@@ -56,4 +56,8 @@
 	<string name="microg_version_tag">MICROG</string>
 
 	<string name="android_version">ro.build.version.release</string>
+
+	<bool name="secondary_device">false</bool>
+	<bool name="download_only_device">false</bool>
+
 </resources>
