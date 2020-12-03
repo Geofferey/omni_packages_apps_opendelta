@@ -100,4 +100,5 @@
     <string name="progress_status_7">Veaolukorrast teatamine&#8230;</string>
     <string name="progress_status_8">Tagasivõtu proovimine&#8230;</string>
     <string name="progress_status_9">Keelatud.</string>
+    <string name="button_select_file">Fail</string>
 </resources>

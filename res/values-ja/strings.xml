@@ -32,6 +32,7 @@
     <string name="state_action_ab_flash">A/B アップデートのインストール中&#8230;</string>
     <string name="state_action_ab_finished">インストール完了しました。再起動中です&#8230;</string>
     <string name="button_reboot_short">再起動</string>
+    <string name="state_action_flash_file_ready">アップデートの書き込み準備ができました</string>
     <!-- updates from 2013/12/18 -->
     <string name="action_secure_mode">セキュア</string>
     <string name="secure_mode_enabled_title">セキュアモード: 有効</string>
@@ -43,6 +44,7 @@
     <string name="recovery_notice_description_not_secure"><![CDATA[現在のモードでの更新の書き込みは、<b>TWRP</b> リカバリーのみ正式にサポートされています。<b>CWM</b> のいくつかの<i>コミュニティビルド</i>バージョンでは動作する<i>かもしれませんが</i>、<i>公式</i> <b>CWM</b> はサポート<i>されていません</i>。続行する前に互換性のあるリカバリーを実行していることを確認して下さい。]]></string>
     <string name="flash_after_update_notice_title">注意</string>
     <string name="flash_after_update_notice_description"><![CDATA[追加の更新は <b>FlashAfterUpdate</b> フォルダにありますが、セキュアモードは有効です。続行すると、これらの追加の更新はフラッシュ<b>されません</b>。]]></string>
+    <string name="state_error_not_official_extra" formatted="false">%s の種類のアップデートはできません</string>
     <string name="button_build_delta">ダウンロード</string>
     <string name="button_stop">停止</string>
     <string name="state_action_build">利用可能な更新があります</string>
@@ -114,4 +116,7 @@
     <string name="flash_file_notice_message"><b>注意:</b>選択された ZIp ファイルがお使いの端末に適応した場合は確認が行われません!\n\n<b>間違った ZIP ファイルのフラッシュは端末を破損する恐れがあります!</b></string>
     <string name="channel_name">更新の進捗状況</string>
     <string name="text_update_file_flash_title">更新ファイル</string>
+    <string name="text_info_section">アップデートが利用可能かどうかを確認するには確認を押してください。アップデートのフラッシュ後は再起動を求められます。 従来のリカバリーベースのアップデートを持つ端末は、フラッシュプロセスを実行するために再起動時にリカバリーに移ります。 お使いの端末がシームレスなアップデート (A/B) をサポートしている場合、再起動でアップデートが有効になります。</string>
+    <string name="error_ab_timestamp">現在のバージョンはアップデートより新しいです</string>
+    <string name="error_ab_inactive">アップデートは既にインストールされており再起動が必要です</string>
 </resources>
