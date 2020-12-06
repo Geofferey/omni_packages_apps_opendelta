@@ -185,7 +185,7 @@ public class Config {
             if (TextUtils.isEmpty(url_base_json)) {
                 urlBaseJson = res.getString(R.string.url_base_json);
             }
-            url_base_full = urlBaseFull + property_device;
+            url_base_full = urlBaseFull + property_device + "/";
             url_base_json = urlBaseJson;
         }
 

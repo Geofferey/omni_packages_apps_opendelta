@@ -940,7 +940,6 @@ OnWantUpdateCheckListener, OnSharedPreferenceChangeListener {
                     fileName.startsWith(config.getFileBaseNamePrefix())) {
                 String[] parts = fileName.split("-");
                 if (parts.length > 1) {
-                    Logger.d("isMatchingImage: check " + fileName);
                     String version = parts[1];
                     Version current = new Version(config.getAndroidVersion());
                     Version fileVersion = new Version(version);
