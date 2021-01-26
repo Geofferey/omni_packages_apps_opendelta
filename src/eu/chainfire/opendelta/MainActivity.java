@@ -100,6 +100,7 @@ public class MainActivity extends Activity {
     private static final String COLON = ":";
     private static final String OMNI_CHANGE_PACKAGE = "org.omnirom.omnichange";
     private static final String OMNI_CHANGE_ACTIVITY = "org.omnirom.omnichange.OmniMain";
+    private static final String EXTRA_SINCE_CURRENT ="since_current";
     private static final String SHOW_INFO_TEXT = "show_info_text";
 
     @Override
@@ -835,6 +836,8 @@ public class MainActivity extends Activity {
             ComponentName changes = new ComponentName(OMNI_CHANGE_PACKAGE,
                     OMNI_CHANGE_ACTIVITY);
             changeActivity.setComponent(changes);
+            changeActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            changeActivity.putExtra(EXTRA_SINCE_CURRENT, true);
             startActivity(changeActivity);
         }
     }
