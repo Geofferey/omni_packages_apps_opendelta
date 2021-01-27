@@ -171,7 +171,7 @@ public class MainActivity extends Activity {
                         Html.fromHtml(getString(R.string.about_content)
                                 .replace("_COPYRIGHT_OPENDELTA_", opendelta)
                                 .replace("_COPYRIGHT_XDELTA_", xdelta)))
-                .setNeutralButton(android.R.string.ok, null)
+                .setPositiveButton(android.R.string.ok, null)
                 .setCancelable(true).show();
         TextView textView = (TextView) dialog
                 .findViewById(android.R.id.message);
