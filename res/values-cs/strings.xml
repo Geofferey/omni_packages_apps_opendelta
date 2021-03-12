@@ -119,4 +119,5 @@
     <string name="text_info_section">Zkontrolujte, zda je k dispozici aktualizace. Po instalaci budete požádáni o restartování zařízení. Zařízení s tradiční aktualizací založenou na recovery vstoupí do recovery při restartu a spustí se instalační proces. Pokud vaše zařízení podporuje bezproblémové aktualizace (A/B), restartováním se aktualizace aktivuje.</string>
     <string name="error_ab_timestamp">Aktuální verze je novější než aktualizace</string>
     <string name="error_ab_inactive">Aktualizace je již nainstalována a vyžaduje restart zařízení</string>
+    <string name="show_changes">Zobrazit změnu</string>
 </resources>

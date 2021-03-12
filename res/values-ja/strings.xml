@@ -108,7 +108,7 @@
     <string name="state_error_flash_file_title">そのファイルをフラッシュできません</string>
     <string name="select_file_activity_title">ZIP ファイルの選択</string>
     <string name="button_select_file">ファイル</string>
-    <string name="state_error_ab_flash_title">AB アップデートをフラッシュできません</string>
+    <string name="state_error_ab_flash_title">A/B アップデートをフラッシュできません</string>
     <string name="state_error_flash_title">更新をフラッシュができません</string>
     <string name="file_flash_support_title">ローカルファイルのフラッシュ</string>
     <string name="file_flash_support_summary">ローカル ZIP ファイル選択を有効化する</string>
@@ -116,7 +116,8 @@
     <string name="flash_file_notice_message"><b>注意:</b>選択された ZIp ファイルがお使いの端末に適応した場合は確認が行われません!\n\n<b>間違った ZIP ファイルのフラッシュは端末を破損する恐れがあります!</b></string>
     <string name="channel_name">更新の進捗状況</string>
     <string name="text_update_file_flash_title">更新ファイル</string>
-    <string name="text_info_section">アップデートが利用可能かどうかを確認するには確認を押してください。アップデートのフラッシュ後は再起動を求められます。 従来のリカバリーベースのアップデートを持つ端末は、フラッシュプロセスを実行するために再起動時にリカバリーに移ります。 お使いの端末がシームレスなアップデート (A/B) をサポートしている場合、再起動でアップデートが有効になります。</string>
+    <string name="text_info_section">アップデートが利用可能かどうかを確認するには確認を押して下さい。アップデートのフラッシュ後は再起動を求められます。 従来のリカバリーベースのアップデートを持つ端末は、フラッシュプロセスを実行するために再起動時にリカバリーに移ります。 お使いの端末がシームレスなアップデート (A/B) をサポートしている場合、再起動でアップデートが有効になります。</string>
     <string name="error_ab_timestamp">現在のバージョンはアップデートより新しいです</string>
     <string name="error_ab_inactive">アップデートは既にインストールされており再起動が必要です</string>
+    <string name="show_changes">変更の表示</string>
 </resources>
