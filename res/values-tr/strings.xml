@@ -30,8 +30,8 @@
     <string name="button_check_now">Güncelleme yokla &#8230;</string>
     <string name="button_flash_now">Kur</string>
     <string name="state_action_ab_flash">AB güncellemesi kuruluyor &#8230;</string>
-    <string name="state_action_ab_finished">Kurulum tamamlandı. Cihazı şimdi tekrar başlatın &#8230;</string>
-    <string name="button_reboot_short">Tekrar başlat</string>
+    <string name="state_action_ab_finished">Kurulum tamamlandı. Cihazı şimdi yeniden başlatın &#8230;</string>
+    <string name="button_reboot_short">Yeniden başlat</string>
     <string name="state_action_flash_file_ready">Güncelleme kurulmaya hazır</string>
     <!-- updates from 2013/12/18 -->
     <string name="action_secure_mode">Güvenli</string>
@@ -93,14 +93,14 @@
     <string name="clean_files_feedback" formatted="false">%d adet dosya silindi. Şimdi \'Güncellemeleri yokla\' düğmesine dokunun</string>
     <string name="state_error_permissions">Depolama izinleri yok.</string>
     <string name="state_error_flash">Kurulamadı. Ön belleği temizleyin ve tekrar deneyin.</string>
-    <string name="state_error_ab_flash">Kurulum tamamlanamadı. Lütfen cihazı tekrar başlatın ve tekrar deneyin.</string>
+    <string name="state_error_ab_flash">Kurulum tamamlanamadı. Lütfen cihazı yeniden başlatın ve tekrar deneyin.</string>
     <string name="progress_status_0">Boşta &#8230;</string>
     <string name="progress_status_1">Güncellemeler yoklanıyor &#8230;</string>
     <string name="progress_status_2">Güncelleme mevcut &#8230;</string>
     <string name="progress_status_3">Kuruluyor &#8230;</string>
     <string name="progress_status_4">Teyit ediliyor &#8230;</string>
     <string name="progress_status_5">Tamamlanıyor &#8230;</string>
-    <string name="progress_status_6">Güncellendi. Cihazın tekrar başlatılması bekleniyor &#8230;</string>
+    <string name="progress_status_6">Güncellendi. Cihazın yeniden başlatılması bekleniyor &#8230;</string>
     <string name="progress_status_7">Hatâ vak\'ası raporlanıyor &#8230;</string>
     <string name="progress_status_8">Değişikliklerin kaldırılmasına teşebbüs ediliyor &#8230;</string>
     <string name="progress_status_9">Devre dışı.</string>
@@ -117,7 +117,7 @@
     <string name="flash_file_notice_message"><b>Dikkat:</b> Seçilen ZIP dosyasının cihazınıza uygun olup olmadığına dâir herhangi bir yoklama olmayacaktır!\n\n<b>Yanlış bir ZIP dosyasını kurmak cihazınızı kullanılamaz hâle getirebilir!</b></string>
     <string name="channel_name">Güncelleme ilerlemesi</string>
     <string name="text_update_file_flash_title">Güncelleme dosyası</string>
-    <string name="text_info_section">Bir güncellemenin mevcut olup olmadığına bakmak için yokla düğmesine dokununuz. Bir güncelleme kurulduktan sonra sizden yeniden başlatmanız rica edilir. Geleneksel recovery yazılımı temeline sahip cihazlar kurulum işleminin yerine getirilmesi için yeniden başlatılma esnasında recovery moduna girer. Cihazınız A/B tipi güncellemeleri destekliyorsa yeniden başlatma güncellemeyi devreye sokar.</string>
+    <string name="text_info_section">Bir güncellemenin mevcut olup olmadığına bakmak için yokla düğmesine dokununuz. Bir güncelleme kurulduktan sonra sizden yeniden başlatmanız rica edilir. Geleneksel kurtarma yazılımı temeline sahip cihazlar kurulum işleminin yerine getirilmesi için yeniden başlatılma esnasında kurtarma moduna girer. Cihazınız A/B tipi güncellemeleri destekliyorsa yeniden başlatma güncellemeyi devreye sokar.</string>
     <string name="error_ab_timestamp">Mevcut versiyon güncellemeden daha yeni</string>
     <string name="error_ab_inactive">Güncelleme zâten kurulmuş ve yeniden başlatmaya ihtiyacı var</string>
     <string name="show_changes">Değişikliği göster</string>
