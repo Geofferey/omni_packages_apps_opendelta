@@ -27,12 +27,12 @@
     <string name="last_checked" formatted="false">%s al %s</string>
     <string name="last_checked_never">Mai eseguito controllo aggiornamenti. Vuoi farlo ora?</string>
     <string name="button_check_short">Verifica</string>
-    <string name="button_check_now">Controlla l\'aggiornamento &#8230;</string>
+    <string name="button_check_now">Controlla gli aggiornamenti &#8230;</string>
     <string name="button_flash_now">Flash</string>
-    <string name="state_action_ab_flash">Installazione dell\'aggiornamento AB &#8230;</string>
-    <string name="state_action_ab_finished">Installazione terminata. Riavvia ora &#8230;</string>
+    <string name="state_action_ab_flash">Installando l\'Aggiornamento AB &#8230;</string>
+    <string name="state_action_ab_finished">Installazione Conclusa. Riavvia Ora &#8230;</string>
     <string name="button_reboot_short">Riavvia</string>
-    <string name="state_action_flash_file_ready">Aggiornamento pronto per il flash</string>
+    <string name="state_action_flash_file_ready">Aggiornamento pronto per esser flashato.</string>
     <!-- updates from 2013/12/18 -->
     <string name="action_secure_mode">Sicurezza</string>
     <string name="secure_mode_enabled_title">Modalità Sicura: attivata</string>
@@ -44,7 +44,7 @@
     <string name="recovery_notice_description_not_secure"><![CDATA[L\'installazione degli aggiornamenti in questa modalità è supportata ufficialmente solo dalla recovery <b>TWRP</b>. Le versioni <i>ufficiali</i> <b>CWM</b> <i>non</i> sono supportate, anche se alcune versioni <b>CWM</b> <i>realizzate nella community</i> <i>potrebbero</i> funzionare comunque. Assicurati di utilizzare una recovery compatibile prima di proseguire.]]></string>
     <string name="flash_after_update_notice_title">Attenzione</string>
     <string name="flash_after_update_notice_description"><![CDATA[Nella cartella <b>FlashAfterUpdate</b> sono presenti degli aggiornamenti aggiuntivi, ma la Modalità Sicura è attivata. Se prosegui, questi aggiornamenti aggiuntivi <b>non</b> verranno installati.]]></string>
-    <string name="state_error_not_official_extra" formatted="false">Aggiornamento di tipo %s non possibile</string>
+    <string name="state_error_not_official_extra" formatted="false">L\'aggiornamento di tipo %s è impossibile</string>
     <string name="button_build_delta">Download</string>
     <string name="button_stop">Stop</string>
     <string name="state_action_build">Aggiornamento disponibile.</string>
@@ -92,32 +92,32 @@
     <string name="clean_files_feedback" formatted="false">%d file eliminati. Ora seleziona \'Controllo aggiornamenti\'</string>
     <string name="state_error_permissions">Nessun permesso per lo storage.</string>
     <string name="state_error_flash">Impossibile inizializzare l\'installazione. Pulisci /cache e riprova.</string>
-    <string name="state_error_ab_flash">Impossibile configurare il flash. Riavviare e riprovare.</string>
+    <string name="state_error_ab_flash">Impossibile configurare il flash. Sei pregato di riavviare e riprovare.</string>
     <string name="progress_status_0">Inattivo &#8230;</string>
-    <string name="progress_status_1">Controllo aggiornamenti &#8230;</string>
+    <string name="progress_status_1">Controllando gli Aggiornamenti &#8230;</string>
     <string name="progress_status_2">Aggiornamento disponibile &#8230;</string>
-    <string name="progress_status_3">Installazione &#8230;</string>
-    <string name="progress_status_4">Verifica &#8230;</string>
-    <string name="progress_status_5">Completamento &#8230;</string>
-    <string name="progress_status_6">Aggiornato. Riavvio in sospeso &#8230;</string>
-    <string name="progress_status_7">Segnalazione errore &#8230;</string>
-    <string name="progress_status_8">Tentativo di rollback &#8230;</string>
-    <string name="progress_status_9">Disattivato.</string>
+    <string name="progress_status_3">Installando&#8230;</string>
+    <string name="progress_status_4">Verificando&#8230;</string>
+    <string name="progress_status_5">Finalizzando&#8230;</string>
+    <string name="progress_status_6">Aggiornato. Riavvio in Sospeso&#8230;</string>
+    <string name="progress_status_7">Segnalando l\'Evento d\'Errore&#8230;</string>
+    <string name="progress_status_8">Tentando il Ripristino&#8230;</string>
+    <string name="progress_status_9">Disabilitato.</string>
     <string name="ab_perf_mode_title">Modalità prestazioni AB</string>
-    <string name="ab_perf_mode_summary_new">Aumenta la priorità del processo di aggiornamento. Potrebbe influenzare l\'utilizzo normale durante l\'aggiornamento.</string>
-    <string name="state_error_flash_file_title">Impossibile effettuare il flash di quel file</string>
-    <string name="select_file_activity_title">Seleziona file ZIP</string>
+    <string name="ab_perf_mode_summary_new">Aumenta la priorità del processo d\'aggiornamento. Potrebbe influenzare il normale uso durante l\'aggiornamento.</string>
+    <string name="state_error_flash_file_title">Impossibile flashare quel file</string>
+    <string name="select_file_activity_title">Seleziona il file ZIP</string>
     <string name="button_select_file">File</string>
-    <string name="state_error_ab_flash_title">Impossibile effettuare il flash dell\'aggiornamento AB</string>
-    <string name="state_error_flash_title">Impossibile effettuare il flash dell\'aggiornamento</string>
-    <string name="file_flash_support_title">Flash di un file locale</string>
+    <string name="state_error_ab_flash_title">Impossibile flashare l\'aggiornamento di AB</string>
+    <string name="state_error_flash_title">Impossibile flashare l\'aggiornamento</string>
+    <string name="file_flash_support_title">Flash del file locale</string>
     <string name="file_flash_support_summary">Abilita la selezione di un file ZIP locale</string>
-    <string name="flash_file_notice_title">Flash di un file locale</string>
-    <string name="flash_file_notice_message"><b>Attenzione:</b> Non ci saranno controlli se il file ZIP selezionato è adatto al tuo dispositivo!\n\n<b>Effettuare il flash dello ZIP errato può portare a un dispositivo non funzionante!</b></string>
-    <string name="channel_name">Progresso dell\'aggiornamento</string>
-    <string name="text_update_file_flash_title">File dell\'aggiornamento</string>
-    <string name="text_info_section">Premi la casella per verificare se è disponibile un aggiornamento. Dopo che è stato eseguito il flash dell\'aggiornamento ti verrà chiesto di riavviare. I dispositivi con un tradizionale aggiornamento basato sulla recovery entreranno nella recovery al riavvio per eseguire il processo flash. Se il dispositivo supporta gli aggiornamenti senza soluzione di continuità (aggiornamenti seamless A/B) il riavvio attiverà l\'aggiornamento.</string>
-    <string name="error_ab_timestamp">La versione attuale è più recente dell\'aggiornamento</string>
-    <string name="error_ab_inactive">Aggiornamento già installato ed è necessario riavviare</string>
+    <string name="flash_file_notice_title">Flash del file locale</string>
+    <string name="flash_file_notice_message"><b>Attenzione:</b> Non ci saranno controlli se il file ZIP selezionato sia adatto al tuo dispositivo!\n\n<b>Flashare la ZIP errata può condurre a un dispositivo non funzionante!</b></string>
+    <string name="channel_name">Progresso d\'aggiornamento</string>
+    <string name="text_update_file_flash_title">File di aggiornamento</string>
+    <string name="text_info_section">Premi verifica per vedere se è disponibile un aggiornamento. Dopo aver flashato un aggiornamento ti sarà chiesto di riavviare. I dispositivi con un aggiornamento tradizionale basato sul ripristino entreranno in ripristino al riavvio per eseguire il processo di flash. Se il tuo dispositivo supporta gli aggiornamenti senza soluzione di continuità (A/B) il riavvio attiverà l\'aggiornamento.</string>
+    <string name="error_ab_timestamp">La versione corrente è più recente dell\'aggiornamento</string>
+    <string name="error_ab_inactive">Aggiornamento già installato, necessario riavviare</string>
     <string name="show_changes">Mostra modifica</string>
 </resources>
