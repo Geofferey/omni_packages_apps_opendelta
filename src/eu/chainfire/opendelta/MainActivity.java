@@ -316,6 +316,8 @@ public class MainActivity extends Activity {
                     extraText = getString(R.string.error_ab_timestamp);
                 } else if (errorCode == UpdateEngine.ErrorCodeConstants.UPDATED_BUT_NOT_ACTIVE) {
                     extraText = getString(R.string.error_ab_inactive);
+                } else if (errorCode == UpdateEngine.ErrorCodeConstants.DOWNLOAD_PAYLOAD_VERIFICATION_ERROR) {
+                    extraText = getString(R.string.error_ab_verification);
                 }
             } else if (UpdateService.STATE_ERROR_FLASH_FILE.equals(state)) {
                 enableCheck = true;

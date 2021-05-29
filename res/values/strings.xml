@@ -140,5 +140,6 @@
     <string name="text_info_section">Press check to see if an update is available. After an update has been flashed you will be asked to reboot. Devices with a traditional recovery based update will enter recovery on reboot to execute the flash process. If your device supports seamless updates (A/B) the reboot will activate the update.</string>
     <string name="error_ab_timestamp">Current version newer then the update</string>
     <string name="error_ab_inactive">Update already installed and needs reboot</string>
+    <string name="error_ab_verification">Verification failed</string>
     <string name="show_changes">Show change</string>
 </resources>
