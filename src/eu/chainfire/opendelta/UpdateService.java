@@ -1548,7 +1548,7 @@ OnWantUpdateCheckListener, OnSharedPreferenceChangeListener {
         stopNotification();
         if (status == UpdateEngine.ErrorCodeConstants.SUCCESS) {
             String flashFilename = prefs.getString(PREF_READY_FILENAME_NAME, PREF_READY_FILENAME_DEFAULT);
-            if (!flashFilename.equals(PREF_READY_FILENAME_DEFAULT)) {
+            if (flashFilename != null && !flashFilename.equals(PREF_READY_FILENAME_DEFAULT)) {
                 deleteOldFlashFile(flashFilename);
                 prefs.edit().putString(PREF_CURRENT_FILENAME_NAME, flashFilename).commit();
             }
